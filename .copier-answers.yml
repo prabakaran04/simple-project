@@ -1,0 +1,12 @@
+# Changes here will be overwritten by Copier; NEVER EDIT MANUALLY
+_commit: '3.1'
+_src_path: https://gitlab.sodexis.com/dev_tools/odoo-modules-templates.git
+add_git_ignore: true
+add_pre_commit_run: true
+author: Prabakaran
+category: Uncategorized
+license: OPL-1
+name: event_management
+odoo_version: 16.0
+only_pre: false
+website: http://unknown.com

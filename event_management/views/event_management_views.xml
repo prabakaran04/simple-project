@@ -1,0 +1,55 @@
+<?xml version ="1.0" encoding="utf-8"?>
+<!-- Copyright 2024 Prabakaran
+    License OPL-1 (See LICENSE file for full copyright and licensing details). -->
+
+
+  <odoo>
+    <record id="view_event_event_form" model="ir.ui.view">
+        <field name="name">event.event.form</field>
+        <field name="model">event.management</field>
+        <field name="arch" type="xml">
+            <form string="Event">
+                <header>
+                    <button string="Confirm" type="object" name="action_confirm" states="draft" class="btn-primary"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,confirmed,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="start_date"/>
+                        <field name="end_date"/>
+                        <field name="location"/>
+                        <field name="seats"/>
+                        <field name="state" invisible="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_event_event_tree" model="ir.ui.view">
+        <field name="name">event.event.tree</field>
+        <field name="model">event.management</field>
+        <field name="arch" type="xml">
+            <tree string="Events">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="end_date"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="action_event_event" model="ir.actions.act_window">
+        <field name="name">Events</field>
+        <field name="res_model">event.management</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_event_event_tree"/>
+    </record>
+
+    <menuitem id="menu_event_management" name="Event Management" sequence="10"/>
+    <menuitem id="menu_event_event" name="Events" parent="menu_event_management" action="action_event_event" sequence="10"/>
+</odoo>
+
+
+
